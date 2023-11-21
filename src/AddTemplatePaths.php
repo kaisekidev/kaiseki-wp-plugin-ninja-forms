@@ -19,6 +19,9 @@ final class AddTemplatePaths implements HookCallbackProviderInterface
 
     public function registerHookCallbacks(): void
     {
+        if ($this->templatePaths === []) {
+            return;
+        }
         add_filter('ninja_forms_field_template_file_paths', [$this, 'addTemplatePaths']);
     }
 

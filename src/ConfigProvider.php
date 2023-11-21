@@ -13,7 +13,9 @@ final class ConfigProvider
     {
         return [
             'hook' => [
-                'provider' => [],
+                'provider' => [
+                    AddTemplatePaths::class,
+                ],
             ],
             'dependencies' => [
                 'aliases' => [],
