@@ -6,6 +6,9 @@ namespace Kaiseki\WordPress\NinjaForms;
 
 use Kaiseki\WordPress\Hook\HookCallbackProviderInterface;
 
+use function in_array;
+use function is_array;
+
 final class RemoveAppendFormMetabox implements HookCallbackProviderInterface
 {
     /**

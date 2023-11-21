@@ -2,7 +2,14 @@
     "symbol-whitelist" : [
         "null", "true", "false",
         "static", "self", "parent",
-        "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object"
+        "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object",
+        "add_action",
+        "add_filter",
+        "get_current_screen",
+        "is_admin",
+        "is_plugin_active",
+        "remove_meta_box",
+        "WP_Screen"
     ],
     "php-core-extensions" : [
         "Core",
