@@ -13,10 +13,7 @@ final class ConfigProvider
     {
         return [
             'hook' => [
-                'provider' => [
-                    AddTemplatePaths::class,
-                    RemoveAppendFormMetabox::class,
-                ],
+                'provider' => [],
             ],
             'dependencies' => [
                 'aliases' => [],
