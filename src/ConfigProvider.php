@@ -17,7 +17,9 @@ final class ConfigProvider
             ],
             'dependencies' => [
                 'aliases' => [],
-                'factories' => [],
+                'factories' => [
+                    AddTemplatePaths::class => AddTemplatePathsFactory::class,
+                ],
             ],
         ];
     }
