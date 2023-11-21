@@ -15,12 +15,14 @@ final class ConfigProvider
             'hook' => [
                 'provider' => [
                     AddTemplatePaths::class,
+                    RemoveAppendFormMetabox::class,
                 ],
             ],
             'dependencies' => [
                 'aliases' => [],
                 'factories' => [
                     AddTemplatePaths::class => AddTemplatePathsFactory::class,
+                    RemoveAppendFormMetabox::class => RemoveAppendFormMetaboxFactory::class,
                 ],
             ],
         ];
