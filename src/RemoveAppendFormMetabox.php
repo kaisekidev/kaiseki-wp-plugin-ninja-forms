@@ -20,7 +20,7 @@ final class RemoveAppendFormMetabox implements HookCallbackProviderInterface
 
     public function registerHookCallbacks(): void
     {
-        if ($this->setting === false || !Plugin::isActive() || !is_admin()) {
+        if ($this->setting === false || !Plugin::isActive()) {
             return;
         }
         add_action('add_meta_boxes', [$this, 'removeMetaBox'], 20);
@@ -29,13 +29,14 @@ final class RemoveAppendFormMetabox implements HookCallbackProviderInterface
     public function removeMetaBox(): void
     {
         $screen = get_current_screen();
-        if (!($screen instanceof \WP_Screen)) {
-            return;
-        }
-        if (!$screen->is_block_editor()) {
-            return;
-        }
-        if (is_array($this->setting) && !in_array($screen->post_type, $this->setting, true)) {
+        if (
+            !($screen instanceof \WP_Screen)
+            || !$screen->is_block_editor()
+            || (
+                is_array($this->setting)
+                && !in_array($screen->post_type, $this->setting, true)
+            )
+        ) {
             return;
         }
         remove_meta_box('nf_admin_metaboxes_appendaform', $screen->id, 'side');
