@@ -13,7 +13,7 @@ final class RemoveAppendFormMetaboxFactory
     {
         $config = Config::get($container);
         /** @var bool|list<string> $setting */
-        $setting = $config->get('ninja_forms/remove_append_form_metabox', false);
+        $setting = $config->get('ninja_forms/remove_append_form_metabox');
         return new RemoveAppendFormMetabox($setting);
     }
 }

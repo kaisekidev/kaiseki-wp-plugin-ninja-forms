@@ -13,7 +13,7 @@ final class AddTemplatePathsFactory
     {
         $config = Config::get($container);
         /** @var list<string> $templatePaths */
-        $templatePaths = $config->array('ninja_forms/template_paths', []);
+        $templatePaths = $config->array('ninja_forms/template_paths');
         return new AddTemplatePaths($templatePaths);
     }
 }
