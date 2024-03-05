@@ -11,9 +11,10 @@ final class AddTemplatePathsFactory
 {
     public function __invoke(ContainerInterface $container): AddTemplatePaths
     {
-        $config = Config::get($container);
+        $config = Config::fromContainer($container);
         /** @var list<string> $templatePaths */
-        $templatePaths = $config->array('ninja_forms/template_paths');
+        $templatePaths = $config->array('ninja_forms.template_paths');
+
         return new AddTemplatePaths($templatePaths);
     }
 }

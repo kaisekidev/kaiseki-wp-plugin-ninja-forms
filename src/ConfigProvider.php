@@ -12,6 +12,10 @@ final class ConfigProvider
     public function __invoke(): array
     {
         return [
+            'ninja_forms' => [
+                'template_paths' => [],
+                'remove_append_form_metabox' => false,
+            ],
             'hook' => [
                 'provider' => [],
             ],

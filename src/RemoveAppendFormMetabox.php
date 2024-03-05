@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Kaiseki\WordPress\NinjaForms;
 
-use Kaiseki\WordPress\Hook\HookCallbackProviderInterface;
+use Kaiseki\WordPress\Hook\HookProviderInterface;
+use WP_Screen;
 
+use function add_action;
+use function get_current_screen;
 use function in_array;
 use function is_array;
+use function remove_meta_box;
 
-final class RemoveAppendFormMetabox implements HookCallbackProviderInterface
+final class RemoveAppendFormMetabox implements HookProviderInterface
 {
     /**
      * @param bool|list<string> $setting
@@ -18,7 +22,7 @@ final class RemoveAppendFormMetabox implements HookCallbackProviderInterface
     {
     }
 
-    public function registerHookCallbacks(): void
+    public function addHooks(): void
     {
         if ($this->setting === false || !Plugin::isActive()) {
             return;
@@ -30,7 +34,7 @@ final class RemoveAppendFormMetabox implements HookCallbackProviderInterface
     {
         $screen = get_current_screen();
         if (
-            !($screen instanceof \WP_Screen)
+            !($screen instanceof WP_Screen)
             || !$screen->is_block_editor()
             || (
                 is_array($this->setting)

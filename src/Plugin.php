@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kaiseki\WordPress\NinjaForms;
 
 use function function_exists;
+use function is_plugin_active;
 
 final class Plugin
 {
@@ -15,6 +16,7 @@ final class Plugin
         if (!function_exists('is_plugin_active')) {
             return false;
         }
+
         return is_plugin_active(self::NAME);
     }
 }

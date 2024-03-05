@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Kaiseki\WordPress\NinjaForms;
 
-use Kaiseki\WordPress\Hook\HookCallbackProviderInterface;
+use Kaiseki\WordPress\Hook\HookProviderInterface;
 
+use function add_filter;
 use function array_merge;
 
-final class AddTemplatePaths implements HookCallbackProviderInterface
+final class AddTemplatePaths implements HookProviderInterface
 {
     /**
      * @param list<string> $templatePaths
@@ -17,7 +18,7 @@ final class AddTemplatePaths implements HookCallbackProviderInterface
     {
     }
 
-    public function registerHookCallbacks(): void
+    public function addHooks(): void
     {
         if ($this->templatePaths === []) {
             return;
@@ -27,6 +28,7 @@ final class AddTemplatePaths implements HookCallbackProviderInterface
 
     /**
      * @param list<string> $templatePaths
+     *
      * @return list<string>
      */
     public function addTemplatePaths(array $templatePaths): array

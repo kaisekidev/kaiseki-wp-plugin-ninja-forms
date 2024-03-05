@@ -11,9 +11,10 @@ final class RemoveAppendFormMetaboxFactory
 {
     public function __invoke(ContainerInterface $container): RemoveAppendFormMetabox
     {
-        $config = Config::get($container);
+        $config = Config::fromContainer($container);
         /** @var bool|list<string> $setting */
-        $setting = $config->get('ninja_forms/remove_append_form_metabox');
+        $setting = $config->get('ninja_forms.remove_append_form_metabox');
+
         return new RemoveAppendFormMetabox($setting);
     }
 }
